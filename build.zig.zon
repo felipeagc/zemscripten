@@ -1,6 +1,13 @@
 .{
-    .name = "zemscripten",
-    .version = "0.2.0-dev",
+    .name = .zemscripten,
+    .version = "0.2.1-dev",
+    .fingerprint = 0x2de6d80ca3c362fc,
+    .dependencies = .{
+        .emsdk = .{
+            .url = "https://github.com/emscripten-core/emsdk/archive/refs/tags/4.0.4.tar.gz",
+            .hash = "N-V-__8AAFi6BQDeMj7wH24J1F5Mj8s7kkJZEPJanR8j0W6u",
+        },
+    },
     .paths = .{
         "build.zig",
         "build.zig.zon",
