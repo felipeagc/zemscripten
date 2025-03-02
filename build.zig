@@ -13,7 +13,6 @@ pub fn build(b: *std.Build) void {
 pub fn emccPath(b: *std.Build) []const u8 {
     return std.fs.path.join(b.allocator, &.{
         b.dependency("emsdk", .{}).path("").getPath(b),
-        "upstream/emscripten/",
         switch (builtin.target.os.tag) {
             .windows => "emcc.bat",
             else => "emcc",
@@ -24,18 +23,10 @@ pub fn emccPath(b: *std.Build) []const u8 {
 pub fn emrunPath(b: *std.Build) []const u8 {
     return std.fs.path.join(b.allocator, &.{
         b.dependency("emsdk", .{}).path("").getPath(b),
-        "upstream/emscripten/",
         switch (builtin.target.os.tag) {
             .windows => "emrun.bat",
             else => "emrun",
         },
-    }) catch unreachable;
-}
-
-pub fn htmlPath(b: *std.Build) []const u8 {
-    return std.fs.path.join(b.allocator, &.{
-        b.dependency("emsdk", .{}).path("").getPath(b),
-        "upstream/emscripten/src/shell.html",
     }) catch unreachable;
 }
 
